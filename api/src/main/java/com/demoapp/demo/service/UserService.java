@@ -14,6 +14,7 @@ public class UserService {
     this.userRepository = userRepository;
   }
 
+  //aqui da pau ferro
   public boolean isEmailValid(String email) {
     return email != null && email.contains("@");
   }
