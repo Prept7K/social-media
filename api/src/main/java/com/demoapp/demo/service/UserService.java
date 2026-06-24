@@ -14,7 +14,7 @@ public class UserService {
     this.userRepository = userRepository;
   }
 
-  //aqui da pau ferro
+  
   public boolean isEmailValid(String email) {
     return email != null && email.contains("@");
   }
@@ -27,7 +27,7 @@ public class UserService {
   public User createUser(String email, String password) {
     User user = new User();
     user.setEmail(email);
-    user.setPassword(password);
+    user.setPassword(password);  //(passwordEncoder.encode(password))
     return userRepository.save(user);
   }
 
@@ -36,3 +36,4 @@ public class UserService {
   }
 
 }
+
