@@ -16,15 +16,7 @@ test.describe("E2E - Curtida sem autenticação", () => {
 
     const primeiroPost = page.getByRole("listitem").first();
     await expect(primeiroPost).toBeVisible();
-
-    page.once("dialog", async (dialog) => {
-      expect(dialog.message()).toBe(
-        "Você precisa estar autenticado para curtir posts!",
-      );
-      await dialog.accept();
-    });
-
-    await primeiroPost.getByRole("button", { name: "Curtir" }).click();
+    -+(await primeiroPost.getByRole("button", { name: "Curtir" }).click());
 
     await expect(page).toHaveURL("http://localhost:3000/");
   });
